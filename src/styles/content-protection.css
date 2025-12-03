@@ -1,0 +1,68 @@
+/* 
+  Content Protection CSS 
+  This prevents users from selecting, copying, editing, or zooming game content
+*/
+
+/* Apply to the entire game container */
+.protected-content {
+  /* Prevent text selection */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+  /* Prevent dragging of elements */
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  
+  /* Disable context menu on right-click */
+  pointer-events: auto;
+}
+
+/* Prevent image dragging */
+.protected-content img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+/* Prevents copying with keyboard shortcuts */
+.protected-content * {
+  /* These ensure content can't be selected */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Special protection for canvas elements (3D content) */
+canvas {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: auto; /* Allows interaction with the game but prevents selection */
+}
+
+/* Prevent zoom on the entire document/page */
+html, body {
+  touch-action: pan-x pan-y; /* Allow panning but disable pinch zoom */
+  -ms-content-zooming: none; /* IE Edge */
+  -ms-touch-action: pan-x pan-y; /* IE Edge */
+  overscroll-behavior: none; /* Prevents bounce effects on some browsers */
+  
+  /* Set a fixed scale that can't be modified */
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  
+  /* Apply maximum scale constraint */
+  max-width: 100%;
+  overflow-x: hidden;
+}
